@@ -13,8 +13,10 @@ const RouteHandler = () => {
 
   return (
     <Routes>
-      <Route index element={<ProtectedRoute user={user}><Home/></ProtectedRoute>}/>
-      <Route exact path="/home" element={<ProtectedRoute user={user}><Home/></ProtectedRoute>}/>
+      {/*<Route index element={<ProtectedRoute user={user}><Home/></ProtectedRoute>}/>*/}
+      <Route index element={<Home/>}/>
+      {/*<Route exact path="/home" element={<ProtectedRoute user={user}><Home/></ProtectedRoute>}/>*/}
+      <Route exact path="/home" element={<Home/>}/>
       <Route exact path="/login" element={
         <div>
           {

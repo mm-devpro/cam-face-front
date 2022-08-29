@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.app {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.nav-side {
+  width: 20%;
+}
+.main-side {
+  width: 80%;
+}
