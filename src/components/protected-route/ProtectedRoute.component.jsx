@@ -4,10 +4,10 @@ import {Navigate} from "react-router-dom";
 const ProtectedRoute = ({ user, children }) => {
 
   if (!user || !user.email) {
-    // user is not authenticated
+    // worker is not authenticated
     return <Navigate to="/"/>;
   }
-  // user is authenticated
+  // worker is authenticated
   return children;
 };
 

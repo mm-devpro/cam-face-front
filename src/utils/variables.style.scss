@@ -1,0 +1,10 @@
+$main-color: #F8B808;
+
+@function set_color($bool) {
+  @if $bool {
+    @return "red";
+  }
+  @else {
+    @return "green";
+  }
+}

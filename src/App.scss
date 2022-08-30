@@ -1,15 +1,22 @@
-.App {
+.app {
+  display: flex;
+  flex-flow: row nowrap;
   text-align: center;
 }
 
-.app {
-  display: flex;
-  flex-flow: row wrap;
-}
-
 .nav-side {
-  width: 20%;
+  width: 20vw;
+  position: relative;
 }
 .main-side {
-  width: 80%;
+  margin: 0 2vw;
+  width: 75vw;
+  position: relative;
+  .header {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+  }
 }

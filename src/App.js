@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
+import Header from "./components/header/Header.component";
 import NavigationBar from "./components/navbar/NavigationBar.component";
-
 import RouteHandler from "./components/route-handler/RouteHandler.component";
 
 import './App.scss';
@@ -13,6 +13,7 @@ const App = () => {
         <NavigationBar/>
       </div>
       <div className="main-side">
+        <Header />
         <RouteHandler/>
       </div>
     </div>
