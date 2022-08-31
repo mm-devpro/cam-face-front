@@ -1,5 +1,8 @@
 import React from "react";
 import {Table} from 'reactstrap';
+import {HiOutlinePencil} from 'react-icons/hi'
+import {CgList} from "react-icons/cg"
+import {TiDeleteOutline} from "react-icons/ti"
 
 import './WorkerPage.styles.scss'
 
@@ -10,6 +13,7 @@ const WorkerPage = () => {
       <Table className="table">
         <thead>
           <tr>
+            <th>Active</th>
             <th>Prénom</th>
             <th>Nom</th>
             <th>Username</th>
@@ -23,6 +27,7 @@ const WorkerPage = () => {
         </thead>
         <tbody>
           <tr>
+            <td>Yes</td>
             <td>Ezechiel</td>
             <td>Sposito</td>
             <td>Le S</td>
@@ -33,7 +38,11 @@ const WorkerPage = () => {
             <td>
               <img src="https://img.freepik.com/photos-gratuite/portrait-homme-blanc-isole_53876-40306.jpg?w=2000" alt="homme" width="50px" height="50px"/>
             </td>
-            <td>actions</td>
+            <td className="table-actions">
+              <CgList size="1.5em"/>
+              <HiOutlinePencil size="1.5em"/>
+              <TiDeleteOutline color="red" size="1.5em"/>
+            </td>
           </tr>
         </tbody>
       </Table>

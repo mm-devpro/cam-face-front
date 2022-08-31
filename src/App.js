@@ -13,8 +13,10 @@ const App = () => {
         <NavigationBar/>
       </div>
       <div className="main-side">
-        <Header />
-        <RouteHandler/>
+        <Header/>
+        <div className="main-container">
+          <RouteHandler/>
+        </div>
       </div>
     </div>
   );

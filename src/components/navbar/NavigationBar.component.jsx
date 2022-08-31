@@ -9,7 +9,7 @@ const NavigationBar = () => {
 
   return (
     <div className="nav">
-      <div className="nav-collapse" onClick={() => setCollapse(!collapse)}>close</div>
+      <div className={`nav-button ${collapse ? "collapse" : ""}`} onClick={() => setCollapse(!collapse)}>close</div>
       <nav className="nav-bar">
         <NavLink className="nav-link" to="/workers">Collaborateurs</NavLink>
         <NavLink className="nav-link" to="/cameras">Cameras</NavLink>

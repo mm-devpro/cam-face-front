@@ -3,7 +3,7 @@ import LogButtonComponent from "../button/LogButton.component";
 
 const Header = () => {
   return (
-    <div>
+    <div className="header">
       Ceci est le header
       <LogButtonComponent />
     </div>
