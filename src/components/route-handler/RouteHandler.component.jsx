@@ -1,7 +1,5 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Route, Routes} from "react-router";
-import {useSelector} from 'react-redux';
-import {Navigate} from 'react-router-dom';
 import ProtectedRoute from "../protected-route/ProtectedRoute.component";
 import Home from "../../pages/home/HomePage.component";
 import Login from "../../pages/auth/LoginPage.component";
@@ -12,26 +10,15 @@ import LockerPage from "../../pages/locker/LockerPage.component";
 
 
 const RouteHandler = () => {
-  const {user} = useSelector(state => state.user)
 
   return (
     <Routes>
-      {/*<Route index element={<ProtectedRoute worker={worker}><Home/></ProtectedRoute>}/>*/}
-      <Route index element={<WorkerPage/>}/>
-      {/*<Route exact path="/home" element={<ProtectedRoute worker={worker}><Home/></ProtectedRoute>}/>*/}
-      <Route exact path="/home" element={<Home/>}/>
+      <Route index element={<ProtectedRoute><WorkerPage/></ProtectedRoute>}/>
+      <Route exact path="/home" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
       <Route exact path="/workers" element={<WorkerPage/>}/>
       <Route exact path="/cameras" element={<CameraPage/>}/>
       <Route exact path="/lockers" element={<LockerPage/>}/>
-      <Route exact path="/login" element={
-        <div>
-          {
-            !user
-              ? <Login/>
-              : <Navigate to="/home" />
-          }
-        </div>
-      }/>
+      <Route exact path="/login" element={<Login/>}/>
       <Route exact path="*" element={<NotFound/>}/>
     </Routes>
   )

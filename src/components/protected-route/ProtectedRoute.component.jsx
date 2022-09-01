@@ -1,13 +1,15 @@
 import React from "react";
 import {Navigate} from "react-router-dom";
+import {useSelector} from "react-redux";
 
-const ProtectedRoute = ({ user, children }) => {
+const ProtectedRoute = ({ children }) => {
+  const {user} = useSelector(state => state.user)
 
   if (!user || !user.email) {
-    // worker is not authenticated
-    return <Navigate to="/"/>;
+    // user is not authenticated
+    return <Navigate to="/login"/>;
   }
-  // worker is authenticated
+  // user is authenticated
   return children;
 };
 

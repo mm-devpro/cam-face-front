@@ -1,0 +1,8 @@
+@import '../../utils/variables.style';
+
+.login-container {
+  border: 2px $main-color solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
