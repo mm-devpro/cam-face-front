@@ -1,8 +1,20 @@
 @import '../../utils/variables.style';
 
 .login-container {
-  border: 2px $main-color solid;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.login-form {
+  border: 2px $main-color solid;
+  width: 20vw;
+  height: 30vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  & * {
+    margin: .5em 0;
+  }
 }

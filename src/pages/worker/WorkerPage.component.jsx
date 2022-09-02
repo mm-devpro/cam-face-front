@@ -8,9 +8,9 @@ import './WorkerPage.styles.scss'
 
 const WorkerPage = () => {
   return (
-    <>
+    <div className="scrollable">
       Worker Page
-      <Table className="table">
+      <Table>
         <thead>
           <tr>
             <th>Active</th>
@@ -46,7 +46,7 @@ const WorkerPage = () => {
           </tr>
         </tbody>
       </Table>
-    </>
+    </div>
   )
 }
 

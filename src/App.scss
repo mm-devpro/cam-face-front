@@ -23,6 +23,18 @@
   }
   .main-container {
     height: 80vh;
-    overflow: scroll;
   }
+}
+.side-collapse {
+  display: none;
+  visibility: hidden;
+}
+.main-when-side-collapse {
+  grid-column: 1 / -1 !important;
+}
+
+.scrollable {
+  overflow: scroll;
+  height: 100%;
+  width: 100%;
 }

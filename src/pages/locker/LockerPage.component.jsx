@@ -49,7 +49,7 @@ const LockerPage = () => {
   }
 
   return (
-    <div>
+    <div className="scrollable">
       <h1>Locker Page</h1>
       <Table className="table">
         <thead>

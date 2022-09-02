@@ -8,13 +8,13 @@ const CameraPage = () => {
     0: {
       name: "camera depot",
       startTime: "12/09/2022 - 13h17",
-      url: "https://ddme-vps-fr.s3.amazonaws.com/uploads/card-images/_600x400_crop_center-center_80_none/videosurveillance-chantier-vision-loin-cr%C3%A9ation-zone.png?mtime=20190408122600&focal=none&tmtime=20220207193443",
+      url: "http://localhost:5000/api/v1/stream/0",
       camNum: 1,
     },
     1: {
       name: "camera entree principale",
       startTime: "12/09/2022 - 09h28",
-      url: "https://www.kiwatch.com/wp-content/uploads/2021/11/enregistrement-videosurveillance-1.jpg.webp",
+      url: "http://localhost:5000/api/v1/stream/1",
       camNum: 2,
     },
     2: {
@@ -38,7 +38,7 @@ const CameraPage = () => {
   }
 
   return (
-    <div className="camera-page">
+    <div className="camera-page scrollable">
       <div className="camera-container">
         {
           cam_data &&

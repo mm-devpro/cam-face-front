@@ -3,7 +3,6 @@ import api from "../../utils/api";
 
 const initialUser = {
   email: "",
-  password: "",
   username: "",
   role: "",
   access: "",
@@ -14,8 +13,9 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     user: initialUser,
+    isLoggedIn: false,
     message: "",
-    status:"",
+    status: "",
   },
   reducers: {
     loginSuccess: (state, action) => {
@@ -23,9 +23,17 @@ const userSlice = createSlice({
       state.user = user;
       state.message = message;
       state.status = status;
+      if (state.status === "success") {
+        state.isLoggedIn = true
+      }
     },
     logoutSuccess: (state, action) => {
-      state.user = null;
+      let {message, status} = action.payload
+      console.log(message, status)
+      state.user = initialUser;
+      state.message = message;
+      state.status = status;
+      state.isLoggedIn = false
     },
   },
 });
@@ -37,14 +45,11 @@ const {loginSuccess, logoutSuccess} = userSlice.actions
 
 export const login = ({email, password}) => async dispatch => {
   try {
-    const res = await api.post('/api/v1/login', {email, password}).then(data => {
+    await api.post('/api/v1/login', {email, password}).then(data => {
       if (data.status === 200) {
-        return data.data
+        return dispatch(loginSuccess(data.data))
       }
     })
-
-    dispatch(loginSuccess(res))
-
   } catch (e) {
     return console.error(e.message)
   }
@@ -52,8 +57,8 @@ export const login = ({email, password}) => async dispatch => {
 
 export const logout = () => async dispatch => {
   try {
-    // const res = await api.post('/api/v1/logout')
-    return dispatch(logoutSuccess())
+    const res = await api.post('/api/v1/logout').then(data => data.data)
+    dispatch(logoutSuccess(res))
   } catch (e) {
     return console.error(e.message)
   }

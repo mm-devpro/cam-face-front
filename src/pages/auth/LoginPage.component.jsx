@@ -41,7 +41,7 @@ const Login = () => {
         >
           {
             ({errors, touched, isSubmitting}) => (
-              <Form>
+              <Form className="login-form">
                 <Field type="email" name="email" placeholder="Email"/>
                 <ErrorMessage name="email"/>
                 <Field type="password" name="password" placeholder="Password"/>

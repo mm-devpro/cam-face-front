@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Navigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 const ProtectedRoute = ({ children }) => {
-  const {user} = useSelector(state => state.user)
+  const {isLoggedIn} = useSelector(state => state.user)
 
-  if (!user || !user.email) {
+  useEffect(() => {
+    console.log(isLoggedIn)
+  });
+
+  if (!isLoggedIn) {
     // user is not authenticated
     return <Navigate to="/login"/>;
   }
