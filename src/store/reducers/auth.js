@@ -10,10 +10,11 @@ const initialUser = {
 
 // SLICE
 const userSlice = createSlice({
-  name: 'user',
+  name: 'auth',
   initialState: {
     user: initialUser,
     isLoggedIn: false,
+    isInAdmin: null,
     message: "",
     status: "",
   },

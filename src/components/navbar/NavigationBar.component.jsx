@@ -11,7 +11,7 @@ const NavigationBar = () => {
       <div className="nav-button" onClick={() => setCollapse(!collapse)}>close</div>
       <nav className="nav-bar">
         <NavLink className="nav-link" to="/workers">Collaborateurs</NavLink>
-        <NavLink className="nav-link" to="/cameras">Cameras</NavLink>
+        <NavLink className="nav-link" to="/streams">Cameras</NavLink>
         <NavLink className="nav-link" to="/lockers">Lockers</NavLink>
         <NavLink className="nav-link" to="/logs">Logs</NavLink>
         <NavLink className="nav-link" to="/settings">Settings</NavLink>

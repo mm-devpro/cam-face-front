@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch} from "react-redux";
-import {logout} from "../../store/reducers/user";
+import {logout} from "../../store/reducers/auth";
 import {useNavigate, useLocation} from "react-router-dom";
 import {ImSwitch} from "react-icons/im";
 

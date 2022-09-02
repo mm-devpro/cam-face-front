@@ -4,17 +4,17 @@ import {Field, Form, Formik, ErrorMessage} from "formik";
 import {Button} from "reactstrap";
 import {Navigate, useNavigate} from "react-router-dom";
 
-import {login} from "../../store/reducers/user";
+import {login} from "../../store/reducers/auth";
 import './LoginPage.styles.scss'
 
 const Login = () => {
-  const {user} = useSelector(state => state.user)
+  const {isLoggedIn} = useSelector(state => state.user)
   let navigate = useNavigate()
   const dispatch = useDispatch()
 
   return (
     <div className="login-container">
-      {(!user || !user.email) ?
+      {!isLoggedIn ?
         <Formik
           initialValues={{email: '', password: ''}}
           validate={values => {

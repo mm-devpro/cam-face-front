@@ -1,27 +1,45 @@
 import React, {useEffect} from 'react';
+import {Routes, Route} from "react-router";
+import {useSelector} from "react-redux";
 import {useCookies} from "react-cookie";
-import Header from "./components/header/Header.component";
-import NavigationBar from "./components/navbar/NavigationBar.component";
-import RouteHandler from "./components/route-handler/RouteHandler.component";
+import AuthContainer from "./components/page-container/AuthContainer.component";
+import BaseAdminContainer from "./components/page-container/BaseAdminContainer.component";
+import BaseContainer from "./components/page-container/BaseContainer.component";
+import FrontAppContainer from "./components/page-container/FrontAppContainer.component";
+import ProtectedRoute from "./components/protected-route/ProtectedRoute.component";
 
 import './App.scss';
-import {useSelector} from "react-redux";
+import WorkerPage from "./pages/worker/WorkerPage.component";
+import CameraPage from "./pages/camera/CameraPage.component";
+import LockerPage from "./pages/locker/LockerPage.component";
+import Login from "./pages/auth/LoginPage.component";
+import NotFound from "./pages/not-found/NotFound.component";
+import Home from "./pages/home/HomePage.component";
+import CameraDetails from "./pages/camera/CameraDetails.component";
 
 const App = () => {
-  let {isLoggedIn} = useSelector(state => state.user)
+  let {isLoggedIn, isInAdmin} = useSelector(state => state.auth)
   let [cookie, setCookie] = useCookies(['user'])
 
   return (
     <div className="app">
-      <div className={`nav-side ${!isLoggedIn && "side-collapse"}`}>
-        <NavigationBar/>
-      </div>
-      <div className={`main-side ${!isLoggedIn && "main-when-side-collapse"}`}>
-        <Header/>
-        <div className="main-container">
-          <RouteHandler/>
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={<BaseContainer/>}>
+          <Route index element={<ProtectedRoute><Home/></ProtectedRoute>} />
+          <Route path="admin" element={<ProtectedRoute><BaseAdminContainer/></ProtectedRoute>} >
+            <Route exact path="workers" element={<WorkerPage/>}/>
+            <Route exact path="streams" element={<CameraPage/>}/>
+            <Route exact path="lockers" element={<LockerPage/>}/>
+          </Route>
+          <Route path="auth" element={<AuthContainer/>} >
+            <Route exact path="login" element={<Login/>}/>
+          </Route>
+          <Route exact path="stream" element={<ProtectedRoute><FrontAppContainer/></ProtectedRoute>}>
+            <Route path=":url" element={<CameraDetails/>}/>
+          </Route>
+        </Route>
+        <Route path="*" element={<NotFound/>}/>
+      </Routes>
     </div>
   );
 }
