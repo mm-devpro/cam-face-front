@@ -1,39 +1,3 @@
 .app {
   text-align: center;
 }
-
-.admin-app {
-  display: grid;
-  grid-template-columns: 20vw 80vw;
-  flex-flow: row nowrap;
-
-  .nav-side {
-    position: relative;
-    grid-column: 1 / 2;
-  }
-
-  .main-side {
-    margin: 0 2vw;
-    grid-column: 2 / -1;
-    position: relative;
-
-    .header {
-      //position: fixed;
-      //top:0;
-      //left: 0;
-      width: 100%;
-      height: 20vh;
-      //z-index: 2;
-    }
-
-    .main-container {
-      height: 80vh;
-    }
-  }
-}
-
-.scrollable {
-  overflow: scroll;
-  height: 100%;
-  width: 100%;
-}

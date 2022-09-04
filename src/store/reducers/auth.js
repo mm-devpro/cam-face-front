@@ -9,7 +9,7 @@ const initialUser = {
 }
 
 // SLICE
-const userSlice = createSlice({
+const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: initialUser,
@@ -30,7 +30,6 @@ const userSlice = createSlice({
     },
     logoutSuccess: (state, action) => {
       let {message, status} = action.payload
-      console.log(message, status)
       state.user = initialUser;
       state.message = message;
       state.status = status;
@@ -39,9 +38,9 @@ const userSlice = createSlice({
   },
 });
 //REDUCER
-export default userSlice.reducer
+export default authSlice.reducer
 // ACTIONS
-const {loginSuccess, logoutSuccess} = userSlice.actions
+const {loginSuccess, logoutSuccess} = authSlice.actions
 
 
 export const login = ({email, password}) => async dispatch => {

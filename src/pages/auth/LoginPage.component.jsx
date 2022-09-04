@@ -8,7 +8,7 @@ import {login} from "../../store/reducers/auth";
 import './LoginPage.styles.scss'
 
 const Login = () => {
-  const {isLoggedIn} = useSelector(state => state.user)
+  const {isLoggedIn} = useSelector(state => state.auth)
   let navigate = useNavigate()
   const dispatch = useDispatch()
 

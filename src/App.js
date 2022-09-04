@@ -7,15 +7,17 @@ import BaseAdminContainer from "./components/page-container/BaseAdminContainer.c
 import BaseContainer from "./components/page-container/BaseContainer.component";
 import FrontAppContainer from "./components/page-container/FrontAppContainer.component";
 import ProtectedRoute from "./components/protected-route/ProtectedRoute.component";
-
-import './App.scss';
 import WorkerPage from "./pages/worker/WorkerPage.component";
 import CameraPage from "./pages/camera/CameraPage.component";
+import Home from "./pages/home/HomePage.component";
 import LockerPage from "./pages/locker/LockerPage.component";
+import LogPage from './pages/logs/LogPage.component';
 import Login from "./pages/auth/LoginPage.component";
 import NotFound from "./pages/not-found/NotFound.component";
-import Home from "./pages/home/HomePage.component";
 import CameraDetails from "./pages/camera/CameraDetails.component";
+import SettingPage from './pages/settings/SettingPage.component';
+import SignUpPage from './pages/auth/SignUpPage.component';
+import './App.scss';
 
 const App = () => {
   let {isLoggedIn, isInAdmin} = useSelector(state => state.auth)
@@ -25,14 +27,17 @@ const App = () => {
     <div className="app">
       <Routes>
         <Route path="/" element={<BaseContainer/>}>
-          <Route index element={<ProtectedRoute><Home/></ProtectedRoute>} />
-          <Route path="admin" element={<ProtectedRoute><BaseAdminContainer/></ProtectedRoute>} >
+          <Route index element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+          <Route path="admin" element={<ProtectedRoute><BaseAdminContainer/></ProtectedRoute>}>
             <Route exact path="workers" element={<WorkerPage/>}/>
             <Route exact path="streams" element={<CameraPage/>}/>
             <Route exact path="lockers" element={<LockerPage/>}/>
+            <Route exact path="logs" element={<LogPage/>}/>
+            <Route exact path="settings" element={<SettingPage/>}/>
           </Route>
-          <Route path="auth" element={<AuthContainer/>} >
+          <Route path="auth" element={<AuthContainer/>}>
             <Route exact path="login" element={<Login/>}/>
+            <Route exact path="signup" element={<SignUpPage/>}/>
           </Route>
           <Route exact path="stream" element={<ProtectedRoute><FrontAppContainer/></ProtectedRoute>}>
             <Route path=":url" element={<CameraDetails/>}/>

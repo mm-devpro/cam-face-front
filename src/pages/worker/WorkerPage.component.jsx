@@ -8,7 +8,7 @@ import './WorkerPage.styles.scss'
 
 const WorkerPage = () => {
   return (
-    <div className="scrollable">
+    <div>
       Worker Page
       <Table>
         <thead>
