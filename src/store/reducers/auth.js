@@ -45,7 +45,7 @@ const {loginSuccess, logoutSuccess} = authSlice.actions
 
 export const login = ({email, password}) => async dispatch => {
   try {
-    await api.post('/api/v1/login', {email, password}).then(data => {
+    await api.post('/cam-api/v1/login', {email, password}).then(data => {
       if (data.status === 200) {
         return dispatch(loginSuccess(data.data))
       }
@@ -57,7 +57,7 @@ export const login = ({email, password}) => async dispatch => {
 
 export const logout = () => async dispatch => {
   try {
-    const res = await api.post('/api/v1/logout').then(data => data.data)
+    const res = await api.post('/cam-api/v1/logout').then(data => data.data)
     dispatch(logoutSuccess(res))
   } catch (e) {
     return console.error(e.message)

@@ -1,5 +1,28 @@
 .camera-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
   grid-gap: 1em;
+}
+
+.camera-actions-container {
+  display: grid;
+  grid-template-columns: 20vw 80vw;
+  min-height: 100vh;
+
+  .left-side-container {
+    grid-column: 0/1 ;
+    height: 100%;
+    .infos-container {
+      height: 50vh;
+    }
+    .actions-container {
+      height: 50vh;
+    }
+  }
+
+  .right-side-container {
+    grid-column: 1/-1 ;
+  }
+
 }

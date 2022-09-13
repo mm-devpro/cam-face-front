@@ -4,23 +4,24 @@ import CameraMin from "../../components/camera/CameraMin.component";
 import './CameraPage.styles.scss'
 
 const CameraPage = () => {
+
   let cam_data = {
     0: {
       name: "camera depot",
       startTime: "12/09/2022 - 13h17",
-      url: "http://localhost:5000/api/v1/stream/0",
-      camNum: 1,
+      url: "http://localhost:5000/cam-api/v1/stream?source=0",
+      camNum: 0,
     },
     1: {
       name: "camera entree principale",
       startTime: "12/09/2022 - 09h28",
-      url: "http://localhost:5000/api/v1/stream/1",
-      camNum: 2,
+      url: "http://localhost:5000/cam-api/v1/stream?source=1",
+      camNum: 1,
     },
     2: {
       name: "camera parking client",
       startTime: "12/09/2022 - 11h21",
-      url: "https://www.securitasdirect.fr/sites/default/files/copropriete-installation-videosurveillance_securitas-direct.jpg",
+      url: "http://localhost:5000/cam-api/v1/stream?source=rtsp://L00ser:tap0cammm!@192.168.1.133:554/stream1",
       camNum: 34,
     },
     3: {
@@ -43,7 +44,6 @@ const CameraPage = () => {
         {
           cam_data &&
           Object.entries(cam_data).map((key, value) => {
-              console.log(cam_data[value])
               return (
                 <CameraMin key={key} data={cam_data[value]}/>
               )

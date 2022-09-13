@@ -6,11 +6,12 @@ import api from "../../utils/api";
 const cameraSlice = createSlice({
   name: 'camera',
   initialState: {
-    url:""
+    url:"",
+    frame: null
   },
   reducers: {
     getFeedSuccess: (state, action) => {
-      state.url = action.payload.url
+      console.log(action.payload)
     },
   },
 });
@@ -20,11 +21,12 @@ export default cameraSlice.reducer
 const {getFeedSuccess} = cameraSlice.actions
 
 
-export const getFeed = ({url}) => async dispatch => {
+export const getFeed = (url) => async dispatch => {
   try {
-    const res = await api.get(`/api/v1/stream/${url}`, ).then(data => {
+    const res = await api.get(`/cam-api/v1/stream/${url}`, ).then(data => {
       if (data.status === 200) {
-        return data
+        console.log(data.data)
+        return data.data
       }
     })
     dispatch(getFeedSuccess(res))

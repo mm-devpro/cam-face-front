@@ -14,7 +14,7 @@ import LockerPage from "./pages/locker/LockerPage.component";
 import LogPage from './pages/logs/LogPage.component';
 import Login from "./pages/auth/LoginPage.component";
 import NotFound from "./pages/not-found/NotFound.component";
-import CameraDetails from "./pages/camera/CameraDetails.component";
+import CameraDetails from "./pages/camera/CameraAction.component";
 import SettingPage from './pages/settings/SettingPage.component';
 import SignUpPage from './pages/auth/SignUpPage.component';
 import './App.scss';
